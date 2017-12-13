@@ -1,11 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    apply from: './dependencies.gradle'
     repositories {
-        jcenter()
+        addCommonRepos(repositories)
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.14.2'
+        classpath deps.android_gradle_plugin
     }
 }
 
@@ -18,7 +19,7 @@ allprojects {
     group = GROUP
 
     repositories {
-        jcenter()
+        addCommonRepos(repositories)
         maven {
             url "https://oss.sonatype.org/content/repositories/snapshots/"
         }
