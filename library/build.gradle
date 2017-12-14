@@ -16,6 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            if (outputFileName.endsWith('aar')) {
+                outputFileName = "CircularProgressButton_${android.defaultConfig.versionName}.aar"
+            }
+        }
+    }
 }
 
 dependencies {
